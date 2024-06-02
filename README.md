@@ -1,3 +1,10 @@
+Initial text ( includgin typo's. From whcih multiple itterations and adjustmenst were asked to be made.
+
+On sterescopic photography there is a formula to calculate disparity. Based on the inter axial base of the 2 camera’s, the distance to the subject , in plane, and the most far object. With a IA ( base ) of 19cm, when the object is at 3m distance , what is the far distance maximum when displaying on a 52” tv? Taking into accpunt max disparity of 2% of screen with. And how mich disparity in cm is on the screen?
+
+
+V6
+
 # stereocalculator
 CHATGTP generator code for stereoscopic side by side rig stereo 3d photography
 
