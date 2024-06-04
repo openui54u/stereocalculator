@@ -63,4 +63,50 @@ V10.
     - Added a calculation to display the disparity percentage as a fraction (1/x).
   
 
+v11.
+### Explanation:
 
+1. *Logarithmic Scale Adjustments*:
+    - Ensure the logarithmic scale is correctly set to the required range for distance (0.1 to 100 meters) and far distance (0.1 to 1000 meters).
+
+2. *Disparity Fraction Calculation*:
+    - The correct calculation for the disparity as a fraction: \( \text{Fraction} = \frac{100}{\text{disparity percentage}} \).
+
+### Key Changes:
+
+- Corrected the slider range for distance and far distance to logarithmic values.
+- Updated the formula to correctly calculate the disparity fraction.
+
+- v12.
+
+- es, you're correct. The maximum values for the distance sliders should be set appropriately to correspond to 100 meters and 1000 meters, respectively, in a logarithmic scale. Additionally, the values should be displayed in a readable numeric format instead of exponential notation.
+
+Let's update the code accordingly:
+
+- Ensure the logarithmic values correspond correctly to the desired ranges.
+- Display the values in a readable numeric format.
+
+
+
+
+
+
+-----
+
+{ So now I made manual corrections on the values  in gthe sliders since chat gpt was not getting there... I gave the code baCK TO CHATGPT TO CHECK. }
+V12 is manual corrected...
+-----
+
+
+
+
+
+v13.
+Your code is mostly correct, but it appears there's an issue with the range values set for the distance sliders. The min and max values should represent the logarithmic scales correctly, and the conversion from logarithmic to linear values should reflect the correct range for both subject distance and far distance.
+
+Let's make these adjustments:
+
+1. Correct the range values for the distance sliders to represent logarithmic values correctly.
+2. Display the values in a readable format, ensuring they don't show up as exponential values.
+
+Here is the corrected version of the code:
