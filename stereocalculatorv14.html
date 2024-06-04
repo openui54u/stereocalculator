@@ -54,6 +54,11 @@
     <input type="range" id="tvSize" min="10" max="100" value="52" step="1" oninput="calculateDisparity()">
 </div>
 
+<div class="slider-container">
+    <label for="eyeSeparation">Eye Separation in cm: <span id="eyeSeparationValue">6.4</span></label>
+    <input type="range" id="eyeSeparation" min="5.5" max="7.3" value="6.4" step="0.1" oninput="calculateDisparity()">
+</div>
+
 <div class="result" id="result"></div>
 
 <script>
@@ -64,6 +69,7 @@
         const farDistanceLog = parseFloat(document.getElementById('farDistance').value);
         const lens = parseFloat(document.getElementById('lens').value);
         const tvSize = parseFloat(document.getElementById('tvSize').value);
+        const eyeSeparation = parseFloat(document.getElementById('eyeSeparation').value);
 
         // Convert logarithmic values back to linear scale
         const distance = Math.pow(10, distanceLog);
@@ -75,6 +81,7 @@
         document.getElementById('farDistanceValue').innerText = farDistance.toFixed(2);
         document.getElementById('lensValue').innerText = lens;
         document.getElementById('tvSizeValue').innerText = tvSize;
+        document.getElementById('eyeSeparationValue').innerText = eyeSeparation;
 
         // Convert TV size to cm
         const diagonal = tvSize * 2.54;
@@ -95,11 +102,15 @@
         // Calculate disparity as a fraction
         const disparityFraction = 100 / disparityPercent;
 
+        // Calculate parallax angle (theta)
+        const theta = 2 * Math.atan((disparityCm / 2) / eyeSeparation) * (180 / Math.PI);
+
         // Display the results
         document.getElementById('result').innerHTML = `
             Disparity on Screen: ${disparityCm.toFixed(2)} cm<br>
             Disparity Percentage: ${disparityPercent.toFixed(2)}%<br>
-            Disparity as a Fraction: 1/${disparityFraction.toFixed(2)}
+            Disparity as a Fraction: 1/${disparityFraction.toFixed(2)}<br>
+            Parallax Angle (theta): ${theta.toFixed(2)} degrees
         `;
     }
 
