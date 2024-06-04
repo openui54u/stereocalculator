@@ -110,3 +110,37 @@ Let's make these adjustments:
 2. Display the values in a readable format, ensuring they don't show up as exponential values.
 
 Here is the corrected version of the code:
+
+
+
+
+
+
+On the websote : https://paulbourke.net/stereographics/stereorender/
+
+I found this text and gave chatgpt this info :
+
+A common measure is the parallax angle defined as theta = 2 atan(DX / 2D) where DX is the horizontal separation of a projected point between the two eyes and d is the distance of the eye from the projection plane. For easy fusing by the majority of people, the absolute value of theta should not exceed 1.5 degrees for all points in the scene. Note theta is positive for points behind the scene and negative for points in front of the screen. It is not uncommon to restrict the negative value of theta to some value closer to zero since negative parallax is more difficult to fuse especially when objects cut the boundary of the projection plane.
+
+And I asked to add a slider for eyedistance 5.5-7.3cm and a new variable.
+
+
+
+```
+
+### Key Additions:
+1. **Eye Separation Slider**:
+   - Added a new slider for eye separation with a range of 5.5 to 7.3 cm.
+   
+2. **Parallax Angle Calculation**:
+   - Calculated the parallax angle (\(\theta\)) using the formula: \(\theta = 2 \cdot \arctan \left(\frac{\text{DX}}{2D}\right)\), where DX is the horizontal separation of a projected point (disparityCm) and \(D\) is the eye separation.
+   
+3. **Results Display**:
+   - Added the parallax angle (\(\theta\)) to the results display.
+
+Please test the updated code and let me know if it meets your requirements.
+
+
+
+
+
