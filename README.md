@@ -28,113 +28,7 @@ Here's how you can implement logarithmic sliders in your code:
 1. Convert the slider values to a logarithmic scale for input.
 2. Convert the logarithmic values back to a linear scale for calculations.
 
-Below is an updated version of your code with logarithmic sliders for the distance to the subject and the far distance:
-
-html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stereoscopic Photography Calculator</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-        .slider-container {
-            margin-bottom: 20px;
-        }
-        .slider-container label {
-            display: block;
-            margin-bottom: 5px;
-        }
-        .slider-container input {
-            width: 100%;
-        }
-        .result {
-            margin-top: 20px;
-            font-weight: bold;
-        }
-    </style>
-</head>
-<body>
-
-<h1>Stereoscopic Photography Calculator</h1>
-
-<div class="slider-container">
-    <label for="ia">Interaxial Base (IA) in cm: <span id="iaValue">19</span></label>
-    <input type="range" id="ia" min="1" max="100" value="19" step="0.1" oninput="calculateDisparity()">
-</div>
-
-<div class="slider-container">
-    <label for="distance">Distance to Subject in meters: <span id="distanceValue">3</span></label>
-    <input type="range" id="distance" min="0.1" max="50" value="Math.log10(3)" step="0.01" oninput="calculateDisparity()">
-</div>
-
-<div class="slider-container">
-    <label for="farDistance">Far Distance in meters: <span id="farDistanceValue">10</span></label>
-    <input type="range" id="farDistance" min="0.1" max="100" value="Math.log10(10)" step="0.01" oninput="calculateDisparity()">
-</div>
-
-<div class="slider-container">
-    <label for="lens">Lens Focal Length in mm: <span id="lensValue">50</span></label>
-    <input type="range" id="lens" min="10" max="500" value="50" step="1" oninput="calculateDisparity()">
-</div>
-
-<div class="slider-container">
-    <label for="tvSize">TV Screen Size in inches: <span id="tvSizeValue">52</span></label>
-    <input type="range" id="tvSize" min="10" max="100" value="52" step="1" oninput="calculateDisparity()">
-</div>
-
-<div class="result" id="result"></div>
-
-<script>
-    function calculateDisparity() {
-        // Get input values
-        const ia = parseFloat(document.getElementById('ia').value);
-        const distance = Math.pow(10, parseFloat(document.getElementById('distance').value));
-        const farDistance = Math.pow(10, parseFloat(document.getElementById('farDistance').value));
-        const lens = parseFloat(document.getElementById('lens').value);
-        const tvSize = parseFloat(document.getElementById('tvSize').value);
-
-        // Update displayed values
-        document.getElementById('iaValue').innerText = ia;
-        document.getElementById('distanceValue').innerText = distance.toFixed(2);
-        document.getElementById('farDistanceValue').innerText = farDistance.toFixed(2);
-        document.getElementById('lensValue').innerText = lens;
-        document.getElementById('tvSizeValue').innerText = tvSize;
-
-        // Convert TV size to cm
-        const diagonal = tvSize * 2.54;
-        const screenWidth = Math.sqrt(16 * 16 / (16 * 16 + 9 * 9)) * diagonal;
-
-        // Calculate disparity
-        const disparity = (ia * (farDistance - distance)) / (farDistance * distance);
-
-        // Calculate magnification factor based on focal length
-        const magnification = lens / 36; // assuming a full-frame sensor with a width of 36 mm
-
-        // Calculate the disparity in cm on the screen
-        const disparityCm = disparity * magnification * screenWidth / 100;
-
-        // Calculate disparity percentage
-        const disparityPercent = (disparityCm / screenWidth) * 100;
-
-        // Display the results
-        document.getElementById('result').innerHTML = `
-            Disparity on Screen: ${disparityCm.toFixed(2)} cm<br>
-            Disparity Percentage: ${disparityPercent.toFixed(2)}%
-        `;
-    }
-
-    // Initial calculation
-    calculateDisparity();
-</script>
-
-</body>
-</html>
-
+(code)
 
 ### Explanation:
 
@@ -149,4 +43,24 @@ html
     - The step value for the sliders is set to 0.01 for distance and farDistance to ensure smooth adjustments.
 
 Please give this updated code a try and see if it improves the ease of adjusting the distances. Let me know if you have any further requests or need more adjustments.
+
+
+
+
+V10.
+### Changes made:
+1. *Distance Slider*:
+    - The logarithmic scale is used to make it easier to adjust distances.
+    - The range of the slider for the distance to the subject is set from 0.1 to 100 meters.
+
+2. *Far Distance Slider*:
+    - The range of the slider for the far distance is set from 0.1 to 1000 meters.
+
+3. *Lens Focal Length*:
+    - Increased the maximum focal length to 800 mm.
+
+4. *Disparity as a Fraction*:
+    - Added a calculation to display the disparity percentage as a fraction (1/x).
+  
+
 
