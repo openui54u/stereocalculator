@@ -142,5 +142,15 @@ Please test the updated code and let me know if it meets your requirements.
 
 
 
+v16
+
+### Key Adjustments:
+1. **Color Coding Conditions**:
+   - Parallax angle (`theta`) should be red if it exceeds 1.5 degrees.
+   - Disparity percentage should be orange if above 2% and red if above 3%.
+   - Disparity on the screen should be orange if above eye separation and red if above both eye separation and disparity percentage conditions.
+   - Disparity fraction should be orange if it exceeds 1/20.
+
+
 
 
