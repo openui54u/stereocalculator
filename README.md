@@ -625,5 +625,11 @@ This updated code includes:
 Please test this code to see if it meets your requirements.
 
 
+v22.
+
+This version:
+- Correctly converts the viewer distance to centimeters before using it in calculations.
+- Includes the version number (22) and the current date and time in the metadata tags.
+- Calculates the viewer distance in centimeters and displays it in the results.
 
 
